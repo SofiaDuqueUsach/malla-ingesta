@@ -9,12 +9,19 @@ body {
   background-color: #fdfdfd;
   margin: 0;
   padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .caja-ramos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 10px;
+  margin-top: 20px;
 }
 
 .ramo {
@@ -37,3 +44,18 @@ body {
   color: white;
 }
 
+.barra-progreso {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progreso {
+  height: 100%;
+  background-color: var(--color-base);
+  width: 0%;
+  transition: width 0.3s ease;
+}

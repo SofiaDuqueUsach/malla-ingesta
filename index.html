@@ -1,2 +1,27 @@
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Interactiva - Estadística USACH</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Malla Interactiva - Estadística USACH</h1>
+  <div class="barra-progreso">
+    <div id="barra" class="progreso"></div>
+  </div>
+  <p id="creditos">0 / 38 créditos completados</p>
 
+  <div class="caja-ramos">
+    <div class="ramo" data-credito="8" onclick="toggleRamo(this)">Álgebra I</div>
+    <div class="ramo" data-credito="8" onclick="toggleRamo(this)">Cálculo I</div>
+    <div class="ramo" data-credito="8" onclick="toggleRamo(this)">Intro a la Prob. y Estad.</div>
+    <div class="ramo" data-credito="3" onclick="toggleRamo(this)">Taller de Habilidades</div>
+    <div class="ramo" data-credito="3" onclick="toggleRamo(this)">Coprogramático I</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
