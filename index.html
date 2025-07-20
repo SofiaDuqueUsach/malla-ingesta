@@ -1,51 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Interactiva - Estadística USACH</title>
-  <link rel="stylesheet" href="estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Interactiva Ingeniería Estadística – USACH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <h1>Malla Interactiva - Estadística USACH</h1>
-
-  <div class="selector">
-    <label for="selectorVista">Ver semestre:</label>
-    <select id="selectorVista" onchange="cambiarVista()">
-      <option value="todos">Todos</option>
-      <option value="1">Semestre 1</option>
-      <option value="2">Semestre 2</option>
+  <h1>Malla Ingeniería Estadística</h1>
+  <div id="selectorVista">
+    <label for="vista">Cambiar vista:</label>
+    <select id="vista">
+      <option value="completa">Vista completa</option>
+      <option value="bachiller">Bachiller</option>
+      <option value="licenciatura">Licenciatura</option>
+      <option value="ingenieria">Ingeniería</option>
     </select>
   </div>
-
-  <div class="barra-progreso">
-    <div id="barra" class="progreso"></div>
+  <div id="barraProgreso"><div id="progreso"></div></div>
+  <div class="malla-grid" id="contenedorMalla">
+    <!-- Aquí se insertarán dinámicamente los semestres -->
   </div>
-  <p id="creditos">0 / 30 créditos completados</p>
-
-  <div id="semestres">
-    <div class="semestre" data-semestre="1">
-      <h2>📘 Semestre 1</h2>
-      <div class="caja-ramos">
-        <div class="ramo bach" data-credito="8" data-codigo="26201" data-prereq="">Álgebra I</div>
-        <div class="ramo bach" data-credito="8" data-codigo="26202" data-prereq="">Cálculo I</div>
-        <div class="ramo bach" data-credito="8" data-codigo="26203" data-prereq="">Intro. a la Prob. y Estad.</div>
-      </div>
-      <p class="creditos-semestre">Total: 24 créditos</p>
-    </div>
-
-    <div class="semestre" data-semestre="2">
-      <h2>📙 Semestre 2</h2>
-      <div class="caja-ramos">
-        <div class="ramo lic" data-credito="7" data-codigo="26206" data-prereq="26201">Álgebra II</div>
-        <div class="ramo ing" data-credito="7" data-codigo="26207" data-prereq="26202">Cálculo II</div>
-        <div class="ramo lic" data-credito="6" data-codigo="26208" data-prereq="26203">Intro. a la Prob. y Estad. II</div>
-      </div>
-      <p class="creditos-semestre">Total: 20 créditos</p>
-    </div>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>

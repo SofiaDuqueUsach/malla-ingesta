@@ -1,89 +1,83 @@
-:root {
-  --color-completo: #89aeff;
-  --color-hover: #b3faff;
-  --color-bach: #90A2FF;
-  --color-lic: #C5FFE8;
-  --color-ing: #C0FFF2;
-  --color-fondo: #a0dcff;
-}
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--color-fondo);
+  background-color: #a0dcff;
   margin: 0;
   padding: 20px;
-  color: #333;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
+  color: #004080;
 }
 
-.selector {
+#selectorVista {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.barra-progreso {
-  width: 100%;
-  background-color: #eee;
-  border-radius: 10px;
+#barraProgreso {
+  width: 90%;
+  margin: 10px auto;
   height: 20px;
-  overflow: hidden;
-  margin: 10px 0;
+  background: #ccc;
+  border-radius: 10px;
 }
 
-.progreso {
+#progreso {
   height: 100%;
-  background-color: var(--color-completo);
+  background-color: #38d0c9;
+  border-radius: 10px;
   width: 0%;
-  transition: width 0.3s ease;
+  transition: width 0.3s;
 }
 
-#creditos {
-  text-align: center;
-  font-weight: 500;
+.malla-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px;
 }
 
 .semestre {
-  margin-bottom: 30px;
+  flex: 0 0 auto;
+  width: 200px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-.caja-ramos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+.semestre h2 {
+  text-align: center;
+  color: #004080;
 }
 
 .ramo {
-  padding: 12px;
-  border-radius: 10px;
-  text-align: center;
-  background-color: white;
-  border: 1px solid #ccc;
+  background: #b3faff;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 160px;
+  font-size: 14px;
 }
 
-.ramo:hover {
-  background-color: var(--color-hover);
+.ramo.aprobado {
+  background: #89aeff !important;
 }
 
-.ramo.completado {
-  background-color: var(--color-completo);
-  text-decoration: line-through;
-  color: white;
+.ramo.bloqueado {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-.ramo.bach { background-color: var(--color-bach); }
-.ramo.lic { background-color: var(--color-lic); }
-.ramo.ing { background-color: var(--color-ing); }
+.bachiller { background-color: #90A2FF !important; }
+.licenciatura { background-color: #C5FFE8 !important; }
+.ingenieria { background-color: #C0FFF2 !important; }
 
-.creditos-semestre {
+.creditos {
   text-align: center;
-  font-size: 0.9rem;
   margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
 }
