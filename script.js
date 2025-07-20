@@ -1,1 +1,1 @@
-console.log("Script cargado. Aquí irá la lógica de malla.");
+console.log('Malla cargada');
