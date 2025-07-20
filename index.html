@@ -1,1 +1,60 @@
-<!DOCTYPE html><html><head><title>Malla</title></head><body><h1>Malla lista</h1></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Ingeniería Estadística USACH</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <header>
+    Malla Interactiva – Ingeniería Estadística USACH (Plan 2016)
+  </header>
+
+  <!-- Leyenda de colores -->
+  <section class="leyenda">
+    <div class="leyenda-item">
+      <div class="leyenda-color" style="background-color:#90A2FF"></div> 🔵 Bachiller
+    </div>
+    <div class="leyenda-item">
+      <div class="leyenda-color" style="background-color:#C5FFE8"></div> 🟢 Licenciatura
+    </div>
+    <div class="leyenda-item">
+      <div class="leyenda-color" style="background-color:#C0FFF2"></div> 🟣 Ingeniería
+    </div>
+    <div class="leyenda-item">
+      <div class="leyenda-color" style="background-color:#89aeff"></div> ✅ Completado
+    </div>
+  </section>
+
+  <!-- Selector de vista -->
+  <div class="selector-vista">
+    <label for="selectorVista">Ver por nivel: </label>
+    <select id="selectorVista">
+      <option value="todos">Todos</option>
+      <option value="1">Nivel 1</option>
+      <option value="2">Nivel 2</option>
+      <option value="3">Nivel 3</option>
+      <option value="4">Nivel 4</option>
+      <option value="5">Nivel 5</option>
+      <option value="6">Nivel 6</option>
+      <option value="7">Nivel 7</option>
+      <option value="8">Nivel 8</option>
+      <option value="9">Nivel 9</option>
+      <option value="10">Nivel 10</option>
+    </select>
+  </div>
+
+  <!-- Barra de progreso -->
+  <div class="progreso-info" id="infoProgreso"></div>
+  <div class="progreso-container">
+    <div class="progreso-barra" id="barraProgreso"></div>
+  </div>
+
+  <!-- Contenedor de la malla -->
+  <section id="malla" class="malla"></section>
+
+  <script src="script.js"></script>
+</body>
+</html>
