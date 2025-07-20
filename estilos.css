@@ -1,1 +1,153 @@
-body { background-color: #a0dcff; }
+/* Fondo general */
+body {
+  background-color: #a0dcff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado */
+header {
+  background-color: #38d0c9;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Contenedor de la malla */
+.malla {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+/* Columna de cada nivel (antes semestre) */
+.nivel {
+  background-color: #ffffff80;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  min-width: 200px;
+  position: relative;
+}
+
+/* Nombre del nivel */
+.nivel h3 {
+  text-align: center;
+  background-color: #38d0c9;
+  color: white;
+  padding: 0.4rem;
+  border-radius: 6px;
+}
+
+/* Estilo de los ramos */
+.ramo {
+  background-color: white;
+  border-radius: 8px;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  box-shadow: 0 0 5px #0002;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ramo:hover {
+  transform: scale(1.03);
+}
+
+/* Ramo completado */
+.ramo.completado {
+  background-color: #89aeff !important;
+  color: white;
+  font-weight: bold;
+}
+
+/* Colores por nivel de formación */
+.bachiller {
+  background-color: #90A2FF;
+}
+
+.licenciatura {
+  background-color: #C5FFE8;
+}
+
+.ingenieria {
+  background-color: #C0FFF2;
+}
+
+/* Prerrequisito mostrado al hacer hover */
+.ramo .prerequisitos {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+/* Barra de progreso */
+.progreso-container {
+  width: 100%;
+  background-color: #ddd;
+  margin: 1rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progreso-barra {
+  height: 20px;
+  background-color: #38d0c9;
+  width: 0%;
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  transition: width 0.5s ease-in-out;
+}
+
+.progreso-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Créditos por nivel */
+.creditos-nivel {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+/* Selector desplegable */
+.selector-vista {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.selector-vista select {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+/* Leyenda de colores */
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem;
+  gap: 1rem;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.leyenda-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
