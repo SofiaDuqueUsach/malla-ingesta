@@ -1,0 +1,454 @@
+{
+  "name": "Ingeniería Estadística USACH - Plan 2016",
+  "semesters": [
+    {
+      "id": 1,
+      "name": "Semestre 1",
+      "courses": [
+        {
+          "code": "26201",
+          "name": "Álgebra I",
+          "credits": 8,
+          "prereqs": []
+        },
+        {
+          "code": "26202",
+          "name": "Cálculo I",
+          "credits": 8,
+          "prereqs": []
+        },
+        {
+          "code": "26203",
+          "name": "Intro. a la Prob. y Estad. I",
+          "credits": 8,
+          "prereqs": []
+        },
+        {
+          "code": "26204",
+          "name": "Taller de Desarrollo de Habilidades",
+          "credits": 3,
+          "prereqs": []
+        },
+        {
+          "code": "26205",
+          "name": "Coprogramático I",
+          "credits": 3,
+          "prereqs": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Semestre 2",
+      "courses": [
+        {
+          "code": "26206",
+          "name": "Álgebra II",
+          "credits": 7,
+          "prereqs": [
+            "26201"
+          ]
+        },
+        {
+          "code": "26207",
+          "name": "Cálculo II",
+          "credits": 7,
+          "prereqs": [
+            "26202"
+          ]
+        },
+        {
+          "code": "26208",
+          "name": "Intro. a la Prob. y Estad. II",
+          "credits": 6,
+          "prereqs": [
+            "26203"
+          ]
+        },
+        {
+          "code": "26209",
+          "name": "Computación I",
+          "credits": 5,
+          "prereqs": [
+            "26201"
+          ]
+        },
+        {
+          "code": "701",
+          "name": "Inglés I",
+          "credits": 3,
+          "prereqs": [
+            "26204"
+          ]
+        },
+        {
+          "code": "26210",
+          "name": "Téc. de Expresión Oral y Escrita",
+          "credits": 2,
+          "prereqs": [
+            "26204"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Semestre 3",
+      "courses": [
+        {
+          "code": "26211",
+          "name": "Álgebra Lineal",
+          "credits": 7,
+          "prereqs": [
+            "26206"
+          ]
+        },
+        {
+          "code": "26212",
+          "name": "Cálculo III",
+          "credits": 7,
+          "prereqs": [
+            "26207"
+          ]
+        },
+        {
+          "code": "26213",
+          "name": "Cálculo de Probabilidades",
+          "credits": 6,
+          "prereqs": [
+            "26208"
+          ]
+        },
+        {
+          "code": "26214",
+          "name": "Computación II",
+          "credits": 5,
+          "prereqs": [
+            "26209"
+          ]
+        },
+        {
+          "code": "26215",
+          "name": "Uso de Software Estadístico",
+          "credits": 2,
+          "prereqs": [
+            "26203"
+          ]
+        },
+        {
+          "code": "702",
+          "name": "Inglés II",
+          "credits": 3,
+          "prereqs": [
+            "701"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Semestre 4",
+      "courses": [
+        {
+          "code": "26216",
+          "name": "Complementos de Cálculo",
+          "credits": 7,
+          "prereqs": [
+            "26212"
+          ]
+        },
+        {
+          "code": "26217",
+          "name": "Inferencia Estadística",
+          "credits": 6,
+          "prereqs": [
+            "26213"
+          ]
+        },
+        {
+          "code": "26218",
+          "name": "Computación III",
+          "credits": 5,
+          "prereqs": [
+            "26214"
+          ]
+        },
+        {
+          "code": "26219",
+          "name": "Física General",
+          "credits": 4,
+          "prereqs": [
+            "26212"
+          ]
+        },
+        {
+          "code": "26220",
+          "name": "Intro. a Cs. de la Ingeniería",
+          "credits": 5,
+          "prereqs": [
+            "26211"
+          ]
+        },
+        {
+          "code": "703",
+          "name": "Inglés III",
+          "credits": 3,
+          "prereqs": [
+            "702"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Semestre 5",
+      "courses": [
+        {
+          "code": "26221",
+          "name": "Teoría de Probabilidad",
+          "credits": 7,
+          "prereqs": [
+            "26216",
+            "26213"
+          ]
+        },
+        {
+          "code": "26222",
+          "name": "Muestreo",
+          "credits": 6,
+          "prereqs": [
+            "26213"
+          ]
+        },
+        {
+          "code": "26223",
+          "name": "Modelos Lineales",
+          "credits": 6,
+          "prereqs": [
+            "26213"
+          ]
+        },
+        {
+          "code": "26224",
+          "name": "Estadística no Paramétrica",
+          "credits": 6,
+          "prereqs": [
+            "26217"
+          ]
+        },
+        {
+          "code": "26225",
+          "name": "Inducción Laboral",
+          "credits": 2,
+          "prereqs": []
+        },
+        {
+          "code": "704",
+          "name": "Inglés IV",
+          "credits": 3,
+          "prereqs": [
+            "703"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Semestre 6",
+      "courses": [
+        {
+          "code": "26226",
+          "name": "Procesos Estocásticos",
+          "credits": 7,
+          "prereqs": [
+            "26221"
+          ]
+        },
+        {
+          "code": "26227",
+          "name": "Diseño y Análisis de Encuestas",
+          "credits": 6,
+          "prereqs": [
+            "26226"
+          ]
+        },
+        {
+          "code": "26228",
+          "name": "Métodos Multivariantes",
+          "credits": 7,
+          "prereqs": [
+            "26223"
+          ]
+        },
+        {
+          "code": "26229",
+          "name": "Simulación Estadística",
+          "credits": 7,
+          "prereqs": [
+            "26218",
+            "26221"
+          ]
+        },
+        {
+          "code": "26230",
+          "name": "Ética Estadística",
+          "credits": 3,
+          "prereqs": [
+            "26225"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Semestre 7",
+      "courses": [
+        {
+          "code": "26231",
+          "name": "Series de Tiempo",
+          "credits": 7,
+          "prereqs": [
+            "26226"
+          ]
+        },
+        {
+          "code": "26232",
+          "name": "Diseño y Análisis de Experimentos",
+          "credits": 6,
+          "prereqs": [
+            "26223",
+            "26227"
+          ]
+        },
+        {
+          "code": "26233",
+          "name": "Electivo I",
+          "credits": 6,
+          "prereqs": [
+            "26228"
+          ]
+        },
+        {
+          "code": "26234",
+          "name": "Bioestadística",
+          "credits": 6,
+          "prereqs": [
+            "26228"
+          ]
+        },
+        {
+          "code": "26235",
+          "name": "Economía",
+          "credits": 5,
+          "prereqs": [
+            "26230"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Semestre 8",
+      "courses": [
+        {
+          "code": "26236",
+          "name": "Taller I",
+          "credits": 8,
+          "prereqs": [
+            "26232",
+            "26231",
+            "26234"
+          ]
+        },
+        {
+          "code": "26237",
+          "name": "Electivo II",
+          "credits": 6,
+          "prereqs": []
+        },
+        {
+          "code": "26238",
+          "name": "Electivo III",
+          "credits": 6,
+          "prereqs": []
+        },
+        {
+          "code": "26239",
+          "name": "Contabilidad y Costos",
+          "credits": 7,
+          "prereqs": [
+            "26235"
+          ]
+        },
+        {
+          "code": "26240",
+          "name": "Coprogramático II",
+          "credits": 3,
+          "prereqs": []
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Semestre 9",
+      "courses": [
+        {
+          "code": "26241",
+          "name": "Taller II",
+          "credits": 12,
+          "prereqs": [
+            "26236"
+          ]
+        },
+        {
+          "code": "26242",
+          "name": "Electivo IV",
+          "credits": 6,
+          "prereqs": []
+        },
+        {
+          "code": "26243",
+          "name": "Seminario de Tesis I",
+          "credits": 6,
+          "prereqs": [
+            "26236",
+            "26237",
+            "26238",
+            "26239",
+            "26240"
+          ]
+        },
+        {
+          "code": "26244",
+          "name": "Evaluación de Proyectos",
+          "credits": 6,
+          "prereqs": [
+            "26239"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Semestre 10",
+      "courses": [
+        {
+          "code": "26245",
+          "name": "Seminario de Tesis II",
+          "credits": 26,
+          "prereqs": [
+            "26243"
+          ]
+        },
+        {
+          "code": "26246",
+          "name": "Comunicación Integral y Liderazgo",
+          "credits": 4,
+          "prereqs": [
+            "26241"
+          ]
+        }
+      ]
+    }
+  ]
+}
