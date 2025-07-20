@@ -1,1 +1,39 @@
+:root {
+  --color-base: #38d0c9;
+  --color-hover: #b3faff;
+  --color-completo: #D66DEA;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfdfd;
+  margin: 0;
+  padding: 20px;
+}
+
+.caja-ramos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.ramo {
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ramo:hover {
+  background-color: var(--color-hover);
+}
+
+.ramo.completado {
+  background-color: var(--color-completo);
+  text-decoration: line-through;
+  color: white;
+}
 
