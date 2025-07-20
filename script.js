@@ -6,9 +6,9 @@ function toggleRamo(el) {
 
 function guardarEstado() {
   const ramos = document.querySelectorAll('.ramo');
-  const estado = [];
-  ramos.forEach((ramo, i) => {
-    estado.push(ramo.classList.contains("completado"));
+  const estado = {};
+  ramos.forEach((ramo) => {
+    estado[ramo.dataset.codigo] = ramo.classList.contains("completado");
   });
   localStorage.setItem("estadoRamos", JSON.stringify(estado));
 }
@@ -17,8 +17,8 @@ function cargarEstado() {
   const ramos = document.querySelectorAll('.ramo');
   const estado = JSON.parse(localStorage.getItem("estadoRamos"));
   if (estado) {
-    ramos.forEach((ramo, i) => {
-      if (estado[i]) {
+    ramos.forEach((ramo) => {
+      if (estado[ramo.dataset.codigo]) {
         ramo.classList.add("completado");
       }
     });
@@ -38,8 +38,19 @@ function actualizarProgreso() {
     }
   });
   document.getElementById("creditos").innerText = `${completados} / ${total} créditos completados`;
-  const porcentaje = (completados / total) * 100;
-  document.getElementById("barra").style.width = porcentaje + "%";
+  document.getElementById("barra").style.width = (completados / total * 100) + "%";
+}
+
+function cambiarVista() {
+  const seleccion = document.getElementById("selectorVista").value;
+  const bloques = document.querySelectorAll(".semestre");
+  bloques.forEach(b => {
+    if (seleccion === "todos" || b.dataset.semestre === seleccion) {
+      b.style.display = "block";
+    } else {
+      b.style.display = "none";
+    }
+  });
 }
 
 window.onload = cargarEstado;

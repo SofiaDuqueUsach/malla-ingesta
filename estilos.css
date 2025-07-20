@@ -1,12 +1,15 @@
 :root {
-  --color-base: #38d0c9;
+  --color-completo: #89aeff;
   --color-hover: #b3faff;
-  --color-completo: #D66DEA;
+  --color-bach: #90A2FF;
+  --color-lic: #C5FFE8;
+  --color-ing: #C0FFF2;
+  --color-fondo: #a0dcff;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fdfdfd;
+  background-color: var(--color-fondo);
   margin: 0;
   padding: 20px;
   color: #333;
@@ -14,14 +17,44 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.selector {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.barra-progreso {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progreso {
+  height: 100%;
+  background-color: var(--color-completo);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+#creditos {
+  text-align: center;
+  font-weight: 500;
+}
+
+.semestre {
+  margin-bottom: 30px;
 }
 
 .caja-ramos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
+  justify-content: center;
 }
 
 .ramo {
@@ -32,6 +65,7 @@ h1 {
   border: 1px solid #ccc;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 160px;
 }
 
 .ramo:hover {
@@ -44,18 +78,12 @@ h1 {
   color: white;
 }
 
-.barra-progreso {
-  width: 100%;
-  background-color: #eee;
-  border-radius: 10px;
-  height: 20px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
+.ramo.bach { background-color: var(--color-bach); }
+.ramo.lic { background-color: var(--color-lic); }
+.ramo.ing { background-color: var(--color-ing); }
 
-.progreso {
-  height: 100%;
-  background-color: var(--color-base);
-  width: 0%;
-  transition: width 0.3s ease;
+.creditos-semestre {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
