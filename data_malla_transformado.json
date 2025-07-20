@@ -1,0 +1,491 @@
+[
+  {
+    "id": "26201",
+    "nombre": "Álgebra I",
+    "nivel": 1,
+    "creditos": 8,
+    "tipo": "bachiller",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26202",
+    "nombre": "Cálculo I",
+    "nivel": 1,
+    "creditos": 8,
+    "tipo": "bachiller",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26203",
+    "nombre": "Intro. a la Prob. y Estad. I",
+    "nivel": 1,
+    "creditos": 8,
+    "tipo": "bachiller",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26204",
+    "nombre": "Taller de Desarrollo de Habilidades",
+    "nivel": 1,
+    "creditos": 3,
+    "tipo": "bachiller",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26205",
+    "nombre": "Coprogramático I",
+    "nivel": 1,
+    "creditos": 3,
+    "tipo": "bachiller",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26206",
+    "nombre": "Álgebra II",
+    "nivel": 2,
+    "creditos": 7,
+    "tipo": "bachiller",
+    "prerrequisitos": [
+      "26201"
+    ]
+  },
+  {
+    "id": "26207",
+    "nombre": "Cálculo II",
+    "nivel": 2,
+    "creditos": 7,
+    "tipo": "bachiller",
+    "prerrequisitos": [
+      "26202"
+    ]
+  },
+  {
+    "id": "26208",
+    "nombre": "Intro. a la Prob. y Estad. II",
+    "nivel": 2,
+    "creditos": 6,
+    "tipo": "bachiller",
+    "prerrequisitos": [
+      "26203"
+    ]
+  },
+  {
+    "id": "26209",
+    "nombre": "Computación I",
+    "nivel": 2,
+    "creditos": 5,
+    "tipo": "bachiller",
+    "prerrequisitos": [
+      "26201"
+    ]
+  },
+  {
+    "id": "701",
+    "nombre": "Inglés I",
+    "nivel": 2,
+    "creditos": 3,
+    "tipo": "bachiller",
+    "prerrequisitos": [
+      "26204"
+    ]
+  },
+  {
+    "id": "26210",
+    "nombre": "Téc. de Expresión Oral y Escrita",
+    "nivel": 2,
+    "creditos": 2,
+    "tipo": "bachiller",
+    "prerrequisitos": [
+      "26204"
+    ]
+  },
+  {
+    "id": "26211",
+    "nombre": "Álgebra Lineal",
+    "nivel": 3,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26206"
+    ]
+  },
+  {
+    "id": "26212",
+    "nombre": "Cálculo III",
+    "nivel": 3,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26207"
+    ]
+  },
+  {
+    "id": "26213",
+    "nombre": "Cálculo de Probabilidades",
+    "nivel": 3,
+    "creditos": 6,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26208"
+    ]
+  },
+  {
+    "id": "26214",
+    "nombre": "Computación II",
+    "nivel": 3,
+    "creditos": 5,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26209"
+    ]
+  },
+  {
+    "id": "26215",
+    "nombre": "Uso de Software Estadístico",
+    "nivel": 3,
+    "creditos": 2,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26203"
+    ]
+  },
+  {
+    "id": "702",
+    "nombre": "Inglés II",
+    "nivel": 3,
+    "creditos": 3,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "701"
+    ]
+  },
+  {
+    "id": "26216",
+    "nombre": "Complementos de Cálculo",
+    "nivel": 4,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26212"
+    ]
+  },
+  {
+    "id": "26217",
+    "nombre": "Inferencia Estadística",
+    "nivel": 4,
+    "creditos": 6,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26213"
+    ]
+  },
+  {
+    "id": "26218",
+    "nombre": "Computación III",
+    "nivel": 4,
+    "creditos": 5,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26214"
+    ]
+  },
+  {
+    "id": "26219",
+    "nombre": "Física General",
+    "nivel": 4,
+    "creditos": 4,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26212"
+    ]
+  },
+  {
+    "id": "26220",
+    "nombre": "Intro. a Cs. de la Ingeniería",
+    "nivel": 4,
+    "creditos": 5,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26211"
+    ]
+  },
+  {
+    "id": "703",
+    "nombre": "Inglés III",
+    "nivel": 4,
+    "creditos": 3,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "702"
+    ]
+  },
+  {
+    "id": "26221",
+    "nombre": "Teoría de Probabilidad",
+    "nivel": 5,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26216",
+      "26213"
+    ]
+  },
+  {
+    "id": "26222",
+    "nombre": "Muestreo",
+    "nivel": 5,
+    "creditos": 6,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26213"
+    ]
+  },
+  {
+    "id": "26223",
+    "nombre": "Modelos Lineales",
+    "nivel": 5,
+    "creditos": 6,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26213"
+    ]
+  },
+  {
+    "id": "26224",
+    "nombre": "Estadística no Paramétrica",
+    "nivel": 5,
+    "creditos": 6,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26217"
+    ]
+  },
+  {
+    "id": "26225",
+    "nombre": "Inducción Laboral",
+    "nivel": 5,
+    "creditos": 2,
+    "tipo": "licenciatura",
+    "prerrequisitos": []
+  },
+  {
+    "id": "704",
+    "nombre": "Inglés IV",
+    "nivel": 5,
+    "creditos": 3,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "703"
+    ]
+  },
+  {
+    "id": "26226",
+    "nombre": "Procesos Estocásticos",
+    "nivel": 6,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26221"
+    ]
+  },
+  {
+    "id": "26227",
+    "nombre": "Diseño y Análisis de Encuestas",
+    "nivel": 6,
+    "creditos": 6,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26226"
+    ]
+  },
+  {
+    "id": "26228",
+    "nombre": "Métodos Multivariantes",
+    "nivel": 6,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26223"
+    ]
+  },
+  {
+    "id": "26229",
+    "nombre": "Simulación Estadística",
+    "nivel": 6,
+    "creditos": 7,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26218",
+      "26221"
+    ]
+  },
+  {
+    "id": "26230",
+    "nombre": "Ética Estadística",
+    "nivel": 6,
+    "creditos": 3,
+    "tipo": "licenciatura",
+    "prerrequisitos": [
+      "26225"
+    ]
+  },
+  {
+    "id": "26231",
+    "nombre": "Series de Tiempo",
+    "nivel": 7,
+    "creditos": 7,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26226"
+    ]
+  },
+  {
+    "id": "26232",
+    "nombre": "Diseño y Análisis de Experimentos",
+    "nivel": 7,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26223",
+      "26227"
+    ]
+  },
+  {
+    "id": "26233",
+    "nombre": "Electivo I",
+    "nivel": 7,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26228"
+    ]
+  },
+  {
+    "id": "26234",
+    "nombre": "Bioestadística",
+    "nivel": 7,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26228"
+    ]
+  },
+  {
+    "id": "26235",
+    "nombre": "Economía",
+    "nivel": 7,
+    "creditos": 5,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26230"
+    ]
+  },
+  {
+    "id": "26236",
+    "nombre": "Taller I",
+    "nivel": 8,
+    "creditos": 8,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26232",
+      "26231",
+      "26234"
+    ]
+  },
+  {
+    "id": "26237",
+    "nombre": "Electivo II",
+    "nivel": 8,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26238",
+    "nombre": "Electivo III",
+    "nivel": 8,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26239",
+    "nombre": "Contabilidad y Costos",
+    "nivel": 8,
+    "creditos": 7,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26235"
+    ]
+  },
+  {
+    "id": "26240",
+    "nombre": "Coprogramático II",
+    "nivel": 8,
+    "creditos": 3,
+    "tipo": "ingenieria",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26241",
+    "nombre": "Taller II",
+    "nivel": 9,
+    "creditos": 12,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26236"
+    ]
+  },
+  {
+    "id": "26242",
+    "nombre": "Electivo IV",
+    "nivel": 9,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": []
+  },
+  {
+    "id": "26243",
+    "nombre": "Seminario de Tesis I",
+    "nivel": 9,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26236",
+      "26237",
+      "26238",
+      "26239",
+      "26240"
+    ]
+  },
+  {
+    "id": "26244",
+    "nombre": "Evaluación de Proyectos",
+    "nivel": 9,
+    "creditos": 6,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26239"
+    ]
+  },
+  {
+    "id": "26245",
+    "nombre": "Seminario de Tesis II",
+    "nivel": 10,
+    "creditos": 26,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26243"
+    ]
+  },
+  {
+    "id": "26246",
+    "nombre": "Comunicación Integral y Liderazgo",
+    "nivel": 10,
+    "creditos": 4,
+    "tipo": "ingenieria",
+    "prerrequisitos": [
+      "26241"
+    ]
+  }
+]
