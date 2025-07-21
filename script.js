@@ -3,8 +3,8 @@
 
 let completados = JSON.parse(localStorage.getItem('completados')) || [];
 
-document.body.style.backgroundColor = "#c5caff";
-document.body.style.color = "#291B72";
+columna.className = "nivel"; // ya los estilos están definidos en CSS
+
 
 function renderizarMalla(data) {
   const mallaContainer = document.getElementById("malla");
