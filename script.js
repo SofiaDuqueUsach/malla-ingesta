@@ -1,19 +1,10 @@
-const URL_MALLA = "data_malla_transformado.json";
+// Asume que tienes cargado el JSON como "data" (lista de ramos)
+// Y que cada ramo tiene: id, nombre, creditos, prerrequisitos (array), tipo ("bachiller", "licenciatura", "ingenieria")
 
-let malla = [];
-let completados = new Set();
-let conexiones = [];
+let completados = JSON.parse(localStorage.getItem('completados')) || [];
 
-document.addEventListener("DOMContentLoaded", async () => {
-  malla = await cargarMalla();
-  renderizarMalla(malla);
-  configurarSelector();
-});
-
-async function cargarMalla() {
-  const res = await fetch(URL_MALLA);
-  return await res.json();
-}
+document.body.style.backgroundColor = "#c5caff";
+document.body.style.color = "#291B72";
 
 function renderizarMalla(data) {
   const mallaContainer = document.getElementById("malla");
@@ -24,6 +15,10 @@ function renderizarMalla(data) {
   niveles.forEach((ramos, nivel) => {
     const columna = document.createElement("div");
     columna.className = "nivel";
+    columna.style.backgroundColor = "#acd3f5";
+    columna.style.border = "1px solid #b9cffa";
+    columna.style.color = "#291B72";
+
     const titulo = document.createElement("h3");
     titulo.textContent = `Nivel ${nivel}`;
     columna.appendChild(titulo);
@@ -36,7 +31,6 @@ function renderizarMalla(data) {
       div.className = `ramo ${ramo.tipo}`;
       div.textContent = `${ramo.nombre} (${ramo.creditos})`;
 
-      // Marca como completado visual
       if (completados.includes(ramo.id)) {
         div.classList.add("completado", "aprobado");
       } else if (!puedeCursar(ramo)) {
@@ -114,4 +108,3 @@ fetch("data_malla_transformado.json")
       actualizarProgreso(json);
     });
   });
-
