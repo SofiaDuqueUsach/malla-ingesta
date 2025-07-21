@@ -16,129 +16,102 @@ async function cargarMalla() {
 }
 
 function renderizarMalla(data) {
-  const contenedor = document.getElementById("malla");
-  contenedor.innerHTML = "";
+  const mallaContainer = document.getElementById("malla");
+  mallaContainer.innerHTML = "";
 
-  const niveles = {};
-  let totalCreditos = 0;
-  let creditosCompletados = 0;
+  const niveles = agruparPorNivel(data);
 
-  // Agrupar ramos por nivel
-  data.forEach(ramo => {
-    totalCreditos += ramo.creditos;
-    if (completados.has(ramo.id)) creditosCompletados += ramo.creditos;
-    if (!niveles[ramo.nivel]) niveles[ramo.nivel] = [];
-    niveles[ramo.nivel].push(ramo);
-  });
-
-  // Dibujar columnas de nivel
-  Object.keys(niveles).sort((a, b) => a - b).forEach(nivel => {
-    const col = document.createElement("div");
-    col.className = "nivel";
-    col.setAttribute("data-nivel", nivel);
-
+  niveles.forEach((ramos, nivel) => {
+    const columna = document.createElement("div");
+    columna.className = "nivel";
     const titulo = document.createElement("h3");
     titulo.textContent = `Nivel ${nivel}`;
-    col.appendChild(titulo);
+    columna.appendChild(titulo);
 
-    niveles[nivel].forEach(ramo => {
+    let creditosNivel = 0;
+
+    ramos.forEach((ramo) => {
       const div = document.createElement("div");
       div.id = `ramo-${ramo.id}`;
       div.className = `ramo ${ramo.tipo}`;
-      div.textContent = ramo.nombre;
-      div.title = `${ramo.nombre} (${ramo.creditos} créditos)`;
+      div.textContent = `${ramo.nombre} (${ramo.creditos})`;
 
-      if (completados.has(ramo.id)) {
-        div.classList.add("completado");
+      // Marca como completado visual
+      if (completados.includes(ramo.id)) {
+        div.classList.add("completado", "aprobado");
+      } else if (!puedeCursar(ramo)) {
+        div.classList.add("bloqueado");
       }
 
       div.addEventListener("click", () => {
-        div.classList.toggle("completado");
-        if (completados.has(ramo.id)) {
-          completados.delete(ramo.id);
+        if (div.classList.contains("bloqueado")) return;
+        if (completados.includes(ramo.id)) {
+          completados = completados.filter(id => id !== ramo.id);
         } else {
-          completados.add(ramo.id);
+          completados.push(ramo.id);
         }
-        renderizarMalla(malla);
+        localStorage.setItem("completados", JSON.stringify(completados));
+        renderizarMalla(data);
+        actualizarProgreso(data);
       });
 
-      // Mostrar prerrequisitos en texto
-      if (ramo.prerrequisitos.length > 0) {
-        const prereq = document.createElement("div");
-        prereq.className = "prerequisitos";
-        prereq.innerText = "Requiere: " +
-          ramo.prerrequisitos.map(id =>
-            data.find(x => x.id === id)?.nombre || id
-          ).join(", ");
-        div.appendChild(prereq);
-      }
-
-      col.appendChild(div);
+      creditosNivel += ramo.creditos;
+      columna.appendChild(div);
     });
 
-    const sumaNivel = niveles[nivel].reduce((sum, r) => sum + r.creditos, 0);
-    const cred = document.createElement("div");
-    cred.className = "creditos-nivel";
-    cred.textContent = `${sumaNivel} créditos`;
-    col.appendChild(cred);
+    const creditosDiv = document.createElement("div");
+    creditosDiv.className = "creditos-nivel";
+    creditosDiv.textContent = `${creditosNivel} créditos`;
+    columna.appendChild(creditosDiv);
 
-    contenedor.appendChild(col);
+    mallaContainer.appendChild(columna);
   });
+}
 
-  // Barra de progreso
-  const porcentaje = (creditosCompletados / totalCreditos) * 100;
-  const faltanCreditos = totalCreditos - creditosCompletados;
-  const semestresRestantes = Math.ceil(faltanCreditos / 30);
+function agruparPorNivel(data) {
+  const niveles = new Map();
+  data.forEach(r => {
+    if (!niveles.has(r.nivel)) niveles.set(r.nivel, []);
+    niveles.get(r.nivel).push(r);
+  });
+  return new Map([...niveles.entries()].sort((a, b) => a[0] - b[0]));
+}
 
-  document.getElementById("infoProgreso").innerText =
-    `${creditosCompletados} / ${totalCreditos} créditos completados\n` +
-    `${porcentaje.toFixed(0)}% completado\n` +
-    `Te faltan aproximadamente ${semestresRestantes} semestres`;
+function puedeCursar(ramo) {
+  return ramo.prerrequisitos.every(pr => completados.includes(pr));
+}
+
+function actualizarProgreso(data) {
+  const totalCred = data.reduce((acc, r) => acc + r.creditos, 0);
+  const credHechos = data.filter(r => completados.includes(r.id)).reduce((a, b) => a + b.creditos, 0);
+  const porcentaje = Math.round((credHechos / totalCred) * 100);
+  const semestresFaltan = Math.ceil((totalCred - credHechos) / 30);
 
   document.getElementById("barraProgreso").style.width = `${porcentaje}%`;
-  document.getElementById("barraProgreso").innerText = `${porcentaje.toFixed(0)}%`;
+  document.getElementById("barraProgreso").textContent = `${porcentaje}%`;
 
-  // Limpiar flechas anteriores
-  conexiones.forEach(line => line.remove());
-  conexiones = [];
-
-  // Dibujar flechas entre prerrequisitos
-  setTimeout(() => {
-    data.forEach(ramo => {
-      const destino = document.getElementById(`ramo-${ramo.id}`);
-      if (!ramo.prerrequisitos.length || !destino) return;
-
-      ramo.prerrequisitos.forEach(id => {
-        const origen = document.getElementById(`ramo-${id}`);
-        if (origen) {
-          const line = new LeaderLine(origen, destino, {
-            color: "#555",
-            size: 2,
-            path: "fluid",
-            startPlug: "disc",
-            endPlug: "arrow3",
-            endPlugSize: 1.5
-          });
-          conexiones.push(line);
-        }
-      });
-    });
-  }, 100); // espera que el DOM termine de renderizar
+  document.getElementById("infoProgreso").textContent =
+    `${credHechos} / ${totalCred} créditos completados\n` +
+    `${porcentaje}% completado\n` +
+    `Te faltan aproximadamente ${semestresFaltan} semestres`;
 }
 
-function configurarSelector() {
-  const selector = document.getElementById("selectorVista");
-  selector.addEventListener("change", (e) => {
-    const nivelSeleccionado = e.target.value;
-    const niveles = document.querySelectorAll(".nivel");
+fetch("data_malla_transformado.json")
+  .then(res => res.json())
+  .then(json => {
+    window.data = json;
+    renderizarMalla(json);
+    actualizarProgreso(json);
 
-    niveles.forEach(n => {
-      if (nivelSeleccionado === "todos" || n.dataset.nivel === nivelSeleccionado) {
-        n.style.display = "block";
+    const selector = document.getElementById("selectorVista");
+    selector.addEventListener("change", () => {
+      if (selector.value === "todos") {
+        renderizarMalla(json);
       } else {
-        n.style.display = "none";
+        const filtrado = json.filter(r => r.nivel == selector.value);
+        renderizarMalla(filtrado);
       }
+      actualizarProgreso(json);
     });
   });
-}
 
