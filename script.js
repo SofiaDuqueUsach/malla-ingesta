@@ -1,7 +1,3 @@
-// Asume que tienes cargado el JSON como "data" (lista de ramos)
-// Y que cada ramo tiene: id, nombre, creditos, prerrequisitos (array), tipo ("bachiller", "licenciatura", "ingenieria")
-fetch("data_malla_transformado.json")
-
 let completados = JSON.parse(localStorage.getItem('completados')) || [];
 
 document.body.style.backgroundColor = "#c5caff";
@@ -20,6 +16,85 @@ function renderizarMalla(data) {
     const titulo = document.createElement("h3");
     titulo.textContent = `Nivel ${nivel}`;
     columna.appendChild(titulo);
+
+    let creditosNivel = 0;
+
+    ramos.forEach((ramo) => {
+      const div = document.createElement("div");
+      div.id = `ramo-${ramo.id}`;
+      div.className = `ramo ${ramo.tipo}`;
+      div.textContent = `${ramo.nombre} (${ramo.creditos})`;
+
+      if (completados.includes(ramo.id)) {
+        div.classList.add("completado", "aprobado");
+      } else if (!puedeCursar(ramo)) {
+        div.classList.add("bloqueado");
+        div.title = `Debe aprobar: ${ramo.prerrequisitos.join(", ")}`;
+      }
+
+      div.addEventListener("click", () => {
+        if (div.classList.contains("bloqueado")) return;
+
+        if (completados.includes(ramo.id)) {
+          completados = completados.filter(id => id !== ramo.id);
+        } else {
+          completados.push(ramo.id);
+        }
+
+        localStorage.setItem("completados", JSON.stringify(completados));
+        renderizarMalla(data);
+        actualizarProgreso(data);
+      });
+
+      creditosNivel += ramo.creditos;
+      columna.appendChild(div);
+    });
+
+    const creditosDiv = document.createElement("div");
+    creditosDiv.className = "creditos-nivel";
+    creditosDiv.textContent = `${creditosNivel} créditos`;
+    columna.appendChild(creditosDiv);
+
+    mallaContainer.appendChild(columna);
+  });
+}
+
+function agruparPorNivel(data) {
+  const niveles = new Map();
+  data.forEach(r => {
+    if (!niveles.has(r.nivel)) niveles.set(r.nivel, []);
+    niveles.get(r.nivel).push(r);
+  });
+  return new Map([...niveles.entries()].sort((a, b) => a[0] - b[0]));
+}
+
+function puedeCursar(ramo) {
+  return ramo.prerrequisitos.every(pr => completados.includes(pr));
+}
+
+function actualizarProgreso(data) {
+  const totalCred = data.reduce((acc, r) => acc + r.creditos, 0);
+  const credHechos = data.filter(r => completados.includes(r.id)).reduce((a, b) => a + b.creditos, 0);
+  const porcentaje = Math.round((credHechos / totalCred) * 100);
+  const semestresFaltan = Math.ceil((totalCred - credHechos) / 30);
+
+  const barra = document.getElementById("barraProgreso");
+  barra.style.width = `${porcentaje}%`;
+  barra.textContent = `${porcentaje}%`;
+
+  document.getElementById("infoProgreso").textContent =
+    `${credHechos} / ${totalCred} créditos completados\n` +
+    `${porcentaje}% completado\n` +
+    `Te faltan aproximadamente ${semestresFaltan} semestres`;
+}
+
+fetch("data_malla_transformado.json")
+  .then(res => res.json())
+  .then(json => {
+    window.data = json;
+    renderizarMalla(json);
+    actualizarProgreso(json);
+  });
 
     let creditosNivel = 0;
 
