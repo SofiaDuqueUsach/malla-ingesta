@@ -201,12 +201,11 @@ h1 {
 }
 
 
-
 /* Hover armonioso con la paleta */
 .ramo:hover {
-  background: linear-gradient(145deg, #d7c3ff, #b9a6ff); /* Lila suave */
-  box-shadow: 6px 6px 12px #a38add, -6px -6px 12px #e2d4ff; /* Sombras lilas */
-  color: #291B72; /* Mantenemos el violeta oscuro del texto */
+  background: linear-gradient(145deg, #c5b4ff, #bba2f7);
+  box-shadow: 6px 6px 10px #a28ce4, -6px -6px 10px #e5d9ff;
+  color: #3e1b70;
   transform: translateY(-3px);
 }
 
