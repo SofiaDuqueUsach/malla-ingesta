@@ -44,15 +44,15 @@ h1 {
 }
 
 .color-box.licenciatura {
-  background: linear-gradient(145deg, #a7a7ff, #f4b6f8);
+  background: linear-gradient(145deg, #6f6aff, #f8b8fa);
 }
 
 .color-box.ingenieria {
-  background: linear-gradient(145deg, #e9b2ff, #c77ee6);
+  background: linear-gradient(145deg, #f8b8fa, #f4b6f8);
 }
 
 .color-box.aprobado {
-  background: linear-gradient(145deg, #d1bee7, #b695d3);
+  background: linear-gradient(145deg, #c89dfa,#aa8cfc);
 }
 
 
@@ -123,18 +123,16 @@ h1 {
 }
 
 
-
-.nivel:hover {
-  background-color: #9e8bff;
-}
-
-
 .nivel h3 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 1.1rem;
   color: #291B72;
+  border-bottom: 1px solid #b9cffa;  /* Línea sutil bajo el texto */
+  padding-bottom: 6px;               /* Espacio entre texto y línea */
+  font-weight: 700;                  /* Más negrita para resaltar */
 }
+
 
 .creditos-nivel {
   text-align: center;
@@ -162,14 +160,14 @@ h1 {
 
 /* LICENCIATURA */
 .ramo.licenciatura {
-  background: linear-gradient(145deg, #a7a7ff, #f4b6f8);
+  background: linear-gradient(145deg, #6f6aff, #f8b8fa);
   border: 1px solid #c2185b;
   color: #880e4f;
 }
 
 /* INGENIERÍA */
 .ramo.ingenieria {
-  background: linear-gradient(145deg, #e9b2ff, #c77ee6);
+  background: linear-gradient(145deg, #f8b8fa, #f4b6f8);
   border: 1px solid #d898f3;
   color: #880e4f;
 }
@@ -196,7 +194,7 @@ h1 {
 .ramo.aprobado {
   background: linear-gradient(145deg, #d1bee7, #b695d3) !important;
   color: #4a148c;
-  border-color: ##988bff;
+  border-color: #988bff;
   text-decoration: line-through;
   font-style: italic;
   box-shadow: 4px 4px 8px #8a69a2, -4px -4px 8px #c6aee1;
@@ -204,17 +202,17 @@ h1 {
 
 
 
-/* Hover */
+/* Hover armonioso con la paleta */
 .ramo:hover {
-  background: linear-gradient(145deg, #f48fb1, #e47c9d);
-  box-shadow: 6px 6px 10px #b67288, -6px -6px 10px #ffbed4;
-  color: #5c0040;
+  background: linear-gradient(145deg, #d7c3ff, #b9a6ff); /* Lila suave */
+  box-shadow: 6px 6px 12px #a38add, -6px -6px 12px #e2d4ff; /* Sombras lilas */
+  color: #291B72; /* Mantenemos el violeta oscuro del texto */
   transform: translateY(-3px);
 }
 
 /* Active (clic) */
 .ramo:active {
-  box-shadow: inset 3px 3px 5px #8474d5, inset -3px -3px 5px #d1a1ee;
+  box-shadow: inset 3px 3px 6px #a390ff, inset -3px -3px 6px #e0d2ff;
   transform: translateY(1px);
 }
 
