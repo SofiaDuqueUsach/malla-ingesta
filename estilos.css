@@ -82,37 +82,6 @@ h1 {
   font-size: 1.1rem;
 }
 
-/* Estilo base de ramo */
-.ramo {
-  background: linear-gradient(145deg, #a7a7ff, #f4b6f8);
-  border: 1px solid #c2185b;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 10px;
-  text-align: center;
-  cursor: pointer;
-  color: #880e4f;
-  font-weight: 600;
-  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
-  transition: all 0.3s ease;
-  user-select: none;
-}
-
-/* Tachar texto si el ramo está completado */
-.ramo.completado {
-  text-decoration: line-through;
-}
-
-/* Colores según tipo de formación */
-.ramo.bachiller     { background-color: #c5caff; }
-.ramo.licenciatura  { background-color: #BFB2FF; }
-.ramo.ingenieria    { background-color: #E9B2FF; }
-
-/* Cuando están completados */
-.ramo.bachiller.completado     { background-color: #90A2FF; }
-.ramo.licenciatura.completado  { background-color: #8F7EE5; }
-.ramo.ingenieria.completado    { background-color: #C77EE6; }
-
 .creditos-nivel {
   text-align: center;
   font-size: 0.9rem;
@@ -124,5 +93,84 @@ h1 {
   font-size: 0.75rem;
   margin-top: 5px;
   color: #333;
+}
+
+/* ----------------------------
+   Estilos por tipo de formación
+   ---------------------------- */
+
+/* BACHILLER */
+.ramo.bachiller {
+  background: linear-gradient(145deg, #c5caff, #6f6aff);
+  border: 1px solid #8c8aff;
+  color: #685BDD;
+}
+
+/* LICENCIATURA */
+.ramo.licenciatura {
+  background: linear-gradient(145deg, #a7a7ff, #f4b6f8);
+  border: 1px solid #c2185b;
+  color: #880e4f;
+}
+
+/* INGENIERÍA */
+.ramo.ingenieria {
+  background: linear-gradient(145deg, #e9b2ff, #c77ee6);
+  border: 1px solid #d898f3;
+  color: #880e4f;
+}
+
+/* Base común de todos los ramos */
+.ramo {
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Tachar texto si el ramo está completado */
+.ramo.completado {
+  text-decoration: line-through;
+}
+
+/* Estilo adicional para aprobado */
+.ramo.aprobado {
+  background: linear-gradient(145deg, #d1bee7, #b695d3) !important;
+  color: #4a148c;
+  border-color: #6a1b9a;
+  text-decoration: line-through;
+  font-style: italic;
+  box-shadow: 4px 4px 8px #8a69a2, -4px -4px 8px #c6aee1;
+}
+
+
+
+/* Hover */
+.ramo:hover {
+  background: linear-gradient(145deg, #f48fb1, #e47c9d);
+  box-shadow: 6px 6px 10px #b67288, -6px -6px 10px #ffbed4;
+  color: #5c0040;
+  transform: translateY(-3px);
+}
+
+/* Active (clic) */
+.ramo:active {
+  box-shadow: inset 3px 3px 5px #b67288, inset -3px -3px 5px #ffbed4;
+  transform: translateY(1px);
+}
+
+/* Ramos bloqueados (no disponibles por falta de prereq) */
+.ramo.bloqueado {
+  background-color: #f3f3f3 !important;
+  color: #999 !important;
+  border-style: dashed;
+  cursor: not-allowed;
+  box-shadow: none;
+  background: none;
 }
 
