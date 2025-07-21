@@ -1,4 +1,3 @@
-/* Fondo general */
 body {
   background-color: #a0dcff;
   font-family: 'Poppins', sans-serif;
@@ -6,148 +5,124 @@ body {
   padding: 0;
 }
 
-/* Encabezado */
-header {
-  background-color: #38d0c9;
-  color: white;
-  padding: 1rem;
+.container {
+  padding: 20px;
+}
+
+h1 {
   text-align: center;
-  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-size: 2rem;
 }
 
-/* Contenedor de la malla */
-.malla {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 1rem;
-}
-
-/* Columna de cada nivel (antes semestre) */
-.nivel {
-  background-color: #ffffff80;
-  border-radius: 10px;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  min-width: 200px;
-  position: relative;
-}
-
-/* Nombre del nivel */
-.nivel h3 {
-  text-align: center;
-  background-color: #38d0c9;
-  color: white;
-  padding: 0.4rem;
-  border-radius: 6px;
-}
-
-/* Estilo de los ramos */
-.ramo {
-  background-color: white;
+.leyenda {
+  background: #fff;
   border-radius: 8px;
-  padding: 0.6rem;
-  margin: 0.5rem 0;
-  box-shadow: 0 0 5px #0002;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
 }
 
-.ramo:hover {
-  transform: scale(1.03);
-}
-
-/* Ramo completado */
-.ramo.completado {
-  background-color: #89aeff !important;
-  color: white;
+#infoProgreso {
+  text-align: center;
+  margin: 10px 0;
+  white-space: pre-line;
   font-weight: bold;
+  font-size: 1rem;
 }
 
-/* Colores por nivel de formación */
-.bachiller {
-  background-color: #90A2FF;
-}
-
-.licenciatura {
-  background-color: #C5FFE8;
-}
-
-.ingenieria {
-  background-color: #C0FFF2;
-}
-
-/* Prerrequisito mostrado al hacer hover */
-.ramo .prerequisitos {
-  font-size: 0.8rem;
-  color: #555;
-  margin-top: 0.3rem;
-}
-
-/* Barra de progreso */
-.progreso-container {
-  width: 100%;
-  background-color: #ddd;
-  margin: 1rem 0;
-  border-radius: 10px;
+.barra-container {
+  width: 80%;
+  height: 25px;
+  background: #d0d0d0;
+  border-radius: 12px;
+  margin: 0 auto 20px;
   overflow: hidden;
 }
 
-.progreso-barra {
-  height: 20px;
-  background-color: #38d0c9;
-  width: 0%;
-  text-align: center;
+#barraProgreso {
+  height: 100%;
+  background: #89aeff;
   color: white;
-  font-size: 0.8rem;
-  transition: width 0.5s ease-in-out;
-}
-
-.progreso-info {
   text-align: center;
-  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 25px;
+  border-radius: 12px;
+  transition: width 0.4s ease-in-out;
 }
 
-/* Créditos por nivel */
+#selectorVista {
+  display: block;
+  margin: 10px auto 30px;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #888;
+}
+
+.malla {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.nivel {
+  flex: 0 0 auto;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.nivel h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Estilo base de ramo */
+.ramo {
+  background: linear-gradient(145deg, #a7a7ff, #f4b6f8);
+  border: 1px solid #c2185b;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #880e4f;
+  font-weight: 600;
+  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Tachar texto si el ramo está completado */
+.ramo.completado {
+  text-decoration: line-through;
+}
+
+/* Colores según tipo de formación */
+.ramo.bachiller     { background-color: #c5caff; }
+.ramo.licenciatura  { background-color: #BFB2FF; }
+.ramo.ingenieria    { background-color: #E9B2FF; }
+
+/* Cuando están completados */
+.ramo.bachiller.completado     { background-color: #90A2FF; }
+.ramo.licenciatura.completado  { background-color: #8F7EE5; }
+.ramo.ingenieria.completado    { background-color: #C77EE6; }
+
 .creditos-nivel {
   text-align: center;
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.prerequisitos {
+  font-size: 0.75rem;
+  margin-top: 5px;
   color: #333;
 }
 
-/* Selector desplegable */
-.selector-vista {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-.selector-vista select {
-  padding: 0.3rem;
-  font-size: 1rem;
-  border-radius: 6px;
-}
-
-/* Leyenda de colores */
-.leyenda {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem;
-  gap: 1rem;
-}
-
-.leyenda-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.leyenda-color {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-}
