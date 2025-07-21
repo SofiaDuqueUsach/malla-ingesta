@@ -3,8 +3,8 @@
 
 let completados = JSON.parse(localStorage.getItem('completados')) || [];
 
-columna.className = "nivel"; // ya los estilos están definidos en CSS
-
+document.body.style.backgroundColor = "#c5caff";
+document.body.style.color = "#291B72";
 
 function renderizarMalla(data) {
   const mallaContainer = document.getElementById("malla");
@@ -15,28 +15,9 @@ function renderizarMalla(data) {
   niveles.forEach((ramos, nivel) => {
     const columna = document.createElement("div");
     columna.className = "nivel";
-    columna.style.backgroundColor = "#acd3f5";
-    columna.style.border = "2px solid #b9cffa";
-    columna.style.color = "#291B72";
-    columna.style.flex = "0 0 auto";
-    columna.style.width = "220px";
-    columna.style.padding = "10px";
-    columna.style.borderRadius = "10px";
-    columna.style.boxShadow = "2px 2px 8px rgba(0,0,0,0.15)";
-    columna.style.transition = "background-color 0.3s ease";
-
-    columna.addEventListener("mouseover", () => {
-      columna.style.backgroundColor = "#9e8bff";
-    });
-    columna.addEventListener("mouseout", () => {
-      columna.style.backgroundColor = "#acd3f5";
-    });
 
     const titulo = document.createElement("h3");
     titulo.textContent = `Nivel ${nivel}`;
-    titulo.style.textAlign = "center";
-    titulo.style.marginBottom = "10px";
-    titulo.style.fontSize = "1.1rem";
     columna.appendChild(titulo);
 
     let creditosNivel = 0;
@@ -72,10 +53,6 @@ function renderizarMalla(data) {
     const creditosDiv = document.createElement("div");
     creditosDiv.className = "creditos-nivel";
     creditosDiv.textContent = `${creditosNivel} créditos`;
-    creditosDiv.style.textAlign = "center";
-    creditosDiv.style.fontSize = "0.9rem";
-    creditosDiv.style.fontWeight = "bold";
-    creditosDiv.style.marginTop = "8px";
     columna.appendChild(creditosDiv);
 
     mallaContainer.appendChild(columna);
