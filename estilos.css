@@ -16,13 +16,45 @@ h1 {
 }
 
 .leyenda {
-  background: #fff;
-  border-radius: 8px;
-  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
   margin-bottom: 20px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  font-size: 0.9rem;
 }
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #291B72;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+/* Colores asociados */
+.color-box.bachiller {
+  background: linear-gradient(145deg, #c5caff, #6f6aff);
+}
+
+.color-box.licenciatura {
+  background: linear-gradient(145deg, #a7a7ff, #f4b6f8);
+}
+
+.color-box.ingenieria {
+  background: linear-gradient(145deg, #e9b2ff, #c77ee6);
+}
+
+.color-box.aprobado {
+  background: linear-gradient(145deg, #d1bee7, #b695d3);
+}
+
 
 #infoProgreso {
   text-align: center;
@@ -32,33 +64,38 @@ h1 {
   font-size: 1rem;
 }
 
-.barra-container {
-  width: 80%;
-  height: 25px;
-  background: #d0d0d0;
-  border-radius: 12px;
-  margin: 0 auto 20px;
+.progreso-container {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  color: #291B72;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.barra-externa {
+  background-color: #e0e0f5;
+  border-radius: 30px;
+  box-shadow: inset 2px 2px 5px #bbb6e0, inset -2px -2px 5px #ffffff;
+  height: 28px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
-#barraProgreso {
+.barra-interna {
   height: 100%;
-  background: #89aeff;
-  color: white;
+  background: linear-gradient(90deg, #9e8bff, #cdacff);
+  color: #291B72;
+  border-radius: 30px;
   text-align: center;
+  line-height: 28px;
   font-weight: bold;
-  line-height: 25px;
-  border-radius: 12px;
-  transition: width 0.4s ease-in-out;
+  transition: width 0.5s ease;
 }
 
-#selectorVista {
-  display: block;
-  margin: 10px auto 30px;
-  font-size: 1rem;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #888;
+.info-progreso {
+  margin-bottom: 6px;
+  white-space: pre-line;
 }
 
 .malla {
@@ -69,11 +106,12 @@ h1 {
 }
 
 .nivel {
-  flex: 0 0 auto;
-  width: 250px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
+  background-color: #cdacff;
+  border: 1px solid #9e8bff;
+  border-radius: 10px;
   padding: 10px;
+  margin: 10px;
+  flex: 1;
 }
 
 .nivel h3 {
