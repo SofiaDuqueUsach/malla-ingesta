@@ -4,37 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Malla Ingeniería Estadística USACH</title>
-  <link rel="stylesheet" href="estilos.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css" />
 </head>
-  
 <body>
+  <div class="container">
+    <h1>Malla Ingeniería Estadística USACH (Plan 2016)</h1>
 
-  <header>
-    Malla Interactiva – Ingeniería Estadística USACH (Plan 2016)
-  </header>
+    <div class="leyenda">
+      <strong>🎨 Leyenda de colores:</strong><br>
+      🔵 <strong>Bachiller en Estadística</strong> — <code>#c5caff</code> / <code>#90A2FF</code> completado<br>
+      🟣 <strong>Licenciado en Estadística y Computación</strong> — <code>#BFB2FF</code> / <code>#8F7EE5</code> completado<br>
+      🟢 <strong>Ingeniero Estadístico</strong> — <code>#E9B2FF</code> / <code>#C77EE6</code> completado<br>
+      ✅ <strong>Ramo completado</strong> — Texto tachado
+    </div>
 
-  <!-- Leyenda de colores -->
-  <section class="leyenda">
-    <div class="leyenda-item">
-      <div class="leyenda-color" style="background-color:#90A2FF"></div> Bachiller
-    </div>
-    <div class="leyenda-item">
-      <div class="leyenda-color" style="background-color:#C5FFE8"></div>  Licenciatura
-    </div>
-    <div class="leyenda-item">
-      <div class="leyenda-color" style="background-color:#C0FFF2"></div> Ingeniería
-    </div>
-    <div class="leyenda-item">
-      <div class="leyenda-color" style="background-color:#89aeff"></div>  Completado
-    </div>
-  </section>
+    <div id="infoProgreso"></div>
 
-  <!-- Selector de vista -->
-  <div class="selector-vista">
-    <label for="selectorVista">Ver por nivel: </label>
+    <div class="barra-container">
+      <div id="barraProgreso">0%</div>
+    </div>
+
     <select id="selectorVista">
-      <option value="todos">Todos</option>
+      <option value="todos">Ver todos los niveles</option>
       <option value="1">Nivel 1</option>
       <option value="2">Nivel 2</option>
       <option value="3">Nivel 3</option>
@@ -46,16 +38,9 @@
       <option value="9">Nivel 9</option>
       <option value="10">Nivel 10</option>
     </select>
-  </div>
 
-  <!-- Barra de progreso -->
-  <div class="progreso-info" id="infoProgreso"></div>
-  <div class="progreso-container">
-    <div class="progreso-barra" id="barraProgreso"></div>
+    <div id="malla" class="malla"></div>
   </div>
-
-  <!-- Contenedor de la malla -->
-  <section id="malla" class="malla"></section>
 
   <script src="script.js"></script>
 </body>
