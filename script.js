@@ -1,7 +1,8 @@
-const URL_MALLA = "malla_estadistica_usach_2016.json";
+const URL_MALLA = "data_malla_transformado.json";
 
 let malla = [];
 let completados = new Set();
+let conexiones = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
   malla = await cargarMalla();
@@ -22,16 +23,15 @@ function renderizarMalla(data) {
   let totalCreditos = 0;
   let creditosCompletados = 0;
 
-  // Organizar ramos por nivel
+  // Agrupar ramos por nivel
   data.forEach(ramo => {
     totalCreditos += ramo.creditos;
     if (completados.has(ramo.id)) creditosCompletados += ramo.creditos;
-
     if (!niveles[ramo.nivel]) niveles[ramo.nivel] = [];
     niveles[ramo.nivel].push(ramo);
   });
 
-  // Dibujar niveles
+  // Dibujar columnas de nivel
   Object.keys(niveles).sort((a, b) => a - b).forEach(nivel => {
     const col = document.createElement("div");
     col.className = "nivel";
@@ -43,6 +43,7 @@ function renderizarMalla(data) {
 
     niveles[nivel].forEach(ramo => {
       const div = document.createElement("div");
+      div.id = `ramo-${ramo.id}`;
       div.className = `ramo ${ramo.tipo}`;
       div.textContent = ramo.nombre;
       div.title = `${ramo.nombre} (${ramo.creditos} créditos)`;
@@ -61,7 +62,7 @@ function renderizarMalla(data) {
         renderizarMalla(malla);
       });
 
-      // Mostrar prerrequisitos por hover
+      // Mostrar prerrequisitos en texto
       if (ramo.prerrequisitos.length > 0) {
         const prereq = document.createElement("div");
         prereq.className = "prerequisitos";
@@ -75,7 +76,6 @@ function renderizarMalla(data) {
       col.appendChild(div);
     });
 
-    // Mostrar créditos por nivel
     const sumaNivel = niveles[nivel].reduce((sum, r) => sum + r.creditos, 0);
     const cred = document.createElement("div");
     cred.className = "creditos-nivel";
@@ -89,6 +89,7 @@ function renderizarMalla(data) {
   const porcentaje = (creditosCompletados / totalCreditos) * 100;
   const faltanCreditos = totalCreditos - creditosCompletados;
   const semestresRestantes = Math.ceil(faltanCreditos / 30);
+
   document.getElementById("infoProgreso").innerText =
     `${creditosCompletados} / ${totalCreditos} créditos completados\n` +
     `${porcentaje.toFixed(0)}% completado\n` +
@@ -96,6 +97,33 @@ function renderizarMalla(data) {
 
   document.getElementById("barraProgreso").style.width = `${porcentaje}%`;
   document.getElementById("barraProgreso").innerText = `${porcentaje.toFixed(0)}%`;
+
+  // Limpiar flechas anteriores
+  conexiones.forEach(line => line.remove());
+  conexiones = [];
+
+  // Dibujar flechas entre prerrequisitos
+  setTimeout(() => {
+    data.forEach(ramo => {
+      const destino = document.getElementById(`ramo-${ramo.id}`);
+      if (!ramo.prerrequisitos.length || !destino) return;
+
+      ramo.prerrequisitos.forEach(id => {
+        const origen = document.getElementById(`ramo-${id}`);
+        if (origen) {
+          const line = new LeaderLine(origen, destino, {
+            color: "#555",
+            size: 2,
+            path: "fluid",
+            startPlug: "disc",
+            endPlug: "arrow3",
+            endPlugSize: 1.5
+          });
+          conexiones.push(line);
+        }
+      });
+    });
+  }, 100); // espera que el DOM termine de renderizar
 }
 
 function configurarSelector() {
@@ -113,3 +141,4 @@ function configurarSelector() {
     });
   });
 }
+
