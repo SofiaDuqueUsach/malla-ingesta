@@ -266,7 +266,9 @@
     "nivel": 5,
     "creditos": 2,
     "tipo": "licenciatura",
-    "prerrequisitos": []
+    "prerrequisitos": [
+"26216", "26217", "26218", "26219", "26220", "703"
+]
   },
   {
     "id": "704",
@@ -295,7 +297,7 @@
     "creditos": 6,
     "tipo": "licenciatura",
     "prerrequisitos": [
-      "26226"
+      "26222"
     ]
   },
   {
