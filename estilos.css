@@ -105,14 +105,21 @@ h1 {
   gap: 20px;
   padding: 20px;
 }
+
 .nivel {
   flex: 0 0 auto;
-  width: 220px;
+  width: 240px;
   padding: 10px;
-  background-color: #cdacff; /* Color del fondo de columnas */
-  border: 2px solid #9e8bff; /* Borde de columnas */
+  background-color: #acd3f5;
+  border: 2px solid #b9cffa;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  color: #291B72;
+  transition: background-color 0.3s ease;
+}
+
+.nivel:hover {
+  background-color: #9e8bff;
 }
 
 
@@ -120,6 +127,7 @@ h1 {
   text-align: center;
   margin-bottom: 10px;
   font-size: 1.1rem;
+  color: #291B72;
 }
 
 .creditos-nivel {
