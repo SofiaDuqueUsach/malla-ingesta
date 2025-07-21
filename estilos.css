@@ -110,8 +110,8 @@ h1 {
   flex: 0 0 auto;
   width: 240px;
   padding: 10px;
-  background-color: #acd3f5;
-  border: 2px solid #b9cffa;
+  background-color: #d5bffa;
+  border: 2px solid #b5a1fd;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
   color: #291B72;
@@ -176,7 +176,7 @@ h1 {
   text-align: center;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
+  box-shadow: 4px 4px 8px #3631C2, -4px -4px 8px #7474FF;
   transition: all 0.3s ease;
   user-select: none;
 }
@@ -190,7 +190,7 @@ h1 {
 .ramo.aprobado {
   background: linear-gradient(145deg, #d1bee7, #b695d3) !important;
   color: #4a148c;
-  border-color: #6a1b9a;
+  border-color: ##988bff;
   text-decoration: line-through;
   font-style: italic;
   box-shadow: 4px 4px 8px #8a69a2, -4px -4px 8px #c6aee1;
@@ -208,7 +208,7 @@ h1 {
 
 /* Active (clic) */
 .ramo:active {
-  box-shadow: inset 3px 3px 5px #b67288, inset -3px -3px 5px #ffbed4;
+  box-shadow: inset 3px 3px 5px #8474d5, inset -3px -3px 5px #d1a1ee;
   transform: translateY(1px);
 }
 
