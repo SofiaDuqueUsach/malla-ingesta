@@ -98,21 +98,23 @@ h1 {
   white-space: pre-line;
 }
 
-.malla {
+#malla {
   display: flex;
+  flex-wrap: nowrap;
   overflow-x: auto;
   gap: 20px;
-  padding-bottom: 40px;
+  padding: 20px;
+}
+.nivel {
+  flex: 0 0 auto;
+  width: 220px;
+  padding: 10px;
+  background-color: #cdacff; /* Color del fondo de columnas */
+  border: 2px solid #9e8bff; /* Borde de columnas */
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
 }
 
-.nivel {
-  background-color: #cdacff;
-  border: 1px solid #9e8bff;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  flex: 1;
-}
 
 .nivel h3 {
   text-align: center;
