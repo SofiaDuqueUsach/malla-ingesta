@@ -1,5 +1,6 @@
 // Asume que tienes cargado el JSON como "data" (lista de ramos)
 // Y que cada ramo tiene: id, nombre, creditos, prerrequisitos (array), tipo ("bachiller", "licenciatura", "ingenieria")
+fetch("data_malla_transformado.json")
 
 let completados = JSON.parse(localStorage.getItem('completados')) || [];
 
