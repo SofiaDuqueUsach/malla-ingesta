@@ -110,13 +110,14 @@ h1 {
   flex: 0 0 auto;
   width: 240px;
   padding: 10px;
-  background-color: #d5bffa;
-  border: 2px solid #b5a1fd;
+  background-color: #cdacff; /* ← AQUÍ */
+  border: 2px solid #9e8bff; /* ← AQUÍ */
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
   color: #291B72;
   transition: background-color 0.3s ease;
 }
+
 
 .nivel:hover {
   background-color: #9e8bff;
