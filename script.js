@@ -1,5 +1,14 @@
 let completados = JSON.parse(localStorage.getItem('completados')) || [];
 
+fetch("data_malla_transformado.json")
+  .then(res => res.json())
+  .then(json => {
+    window.data = json;
+    renderizarMalla(json);
+    actualizarProgreso(json);
+  });
+
+
 document.body.style.backgroundColor = "#c5caff";
 document.body.style.color = "#291B72";
 
@@ -163,10 +172,3 @@ function actualizarProgreso(data) {
     `Te faltan aproximadamente ${semestresFaltan} semestres`;
 }
 
-fetch("data_malla_transformado.json")
-  .then(res => res.json())
-  .then(json => {
-    window.data = json;
-    renderizarMalla(json);
-    actualizarProgreso(json);
-  });
